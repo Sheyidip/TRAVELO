@@ -1,0 +1,115 @@
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+
+const TravelWebsite = () => {
+  const activities = [
+    {
+      id: '01',
+      title: 'Trekking',
+      description: 'Climb the highest mountain in Europe!'
+    },
+    {
+      id: '02',
+      title: 'Rafting',
+      description: 'Let your soul flow wild and hang on there!'
+    },
+    {
+      id: '03',
+      title: 'Windsurfing',
+      description: 'Don\'t let the board leave on a new day!'
+    }
+  ];
+
+  const destinations = [
+    {
+      location: 'Tanzania',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      location: 'Reunion',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      location: 'Colombia',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      location: 'Tasmania',
+      image: '/api/placeholder/400/300'
+    }
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto p-8">
+      {/* Header Section */}
+      <nav className="flex justify-between items-center mb-12">
+        <div className="text-xl font-bold">Trávelo</div>
+        <div className="flex space-x-6">
+          <a href="#" className="hover:text-blue-600">Home</a>
+          <a href="#" className="hover:text-blue-600">About us</a>
+          <a href="#" className="hover:text-blue-600">Destinations</a>
+          <a href="#" className="hover:text-blue-600">Packages</a>
+          <a href="#" className="hover:text-blue-600">Pricing</a>
+          <a href="#" className="hover:text-blue-600">Reviews</a>
+          <a href="#" className="hover:text-blue-600">Contact</a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="flex items-center justify-between mb-16">
+        <div className="w-1/2">
+          <h1 className="text-6xl font-bold leading-tight mb-6">
+            Lifelong Memories Just A Few Days Away
+          </h1>
+          <button className="bg-black text-white px-8 py-3 rounded-full">
+            JOIN US NOW
+          </button>
+        </div>
+        <div className="w-1/2">
+          <img 
+            src="/api/placeholder/500/400" 
+            alt="Traveler with luggage"
+            className="rounded-lg"
+          />
+        </div>
+      </div>
+
+      {/* Activities Section */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold mb-8">What Excites You Most?</h2>
+        <div className="grid grid-cols-3 gap-8">
+          {activities.map((activity) => (
+            <Card key={activity.id} className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="text-4xl font-light mb-4">{activity.id}</div>
+                <h3 className="text-xl font-bold mb-2">{activity.title}</h3>
+                <p className="text-gray-600">{activity.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Destinations Section */}
+      <div>
+        <h2 className="text-2xl font-bold mb-8">Discover the touch of Nature</h2>
+        <div className="grid grid-cols-4 gap-4">
+          {destinations.map((destination) => (
+            <Card key={destination.location} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <img 
+                src={destination.image} 
+                alt={destination.location}
+                className="w-full h-48 object-cover"
+              />
+              <CardContent className="p-4">
+                <h3 className="font-semibold">{destination.location}</h3>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TravelWebsite;

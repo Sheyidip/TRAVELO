@@ -1,0 +1,133 @@
+import React from 'react';
+import { Instagram, Facebook, Twitter, ArrowUpCircle, Share2 } from 'lucide-react';
+
+const TravelFooter = () => {
+  const activities = [
+    {
+      id: "01",
+      title: "Trekking",
+      description: "Climbing the tallest mountain in Europe!",
+      image: "/api/placeholder/80/80"
+    },
+    {
+      id: "02",
+      title: "Rafting",
+      description: "Let's met the wildest river and rafting on them!",
+      image: "/api/placeholder/80/80"
+    },
+    {
+      id: "03",
+      title: "Windsurfing",
+      description: "Didn't see the tallest wave on a rainy day?",
+      image: "/api/placeholder/80/80"
+    }
+  ];
+
+  return (
+    <footer className="max-w-7xl mx-auto px-8 py-12 bg-white">
+      <div className="grid grid-cols-12 gap-8">
+        {/* Left Section */}
+        <div className="col-span-3">
+          <div className="flex flex-col space-y-6">
+            <h2 className="text-2xl font-bold">Trávelo</h2>
+            <p className="text-gray-600 text-sm">
+              Travel platform and really an instrument that ensures making traveling easier.
+            </p>
+            <div className="flex flex-col space-y-4">
+              <h3 className="font-semibold">Join our Newsletter</h3>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your e-mail"
+                  className="p-2 border rounded-l w-full"
+                />
+                <button className="bg-black text-white px-4 rounded-r">
+                  <Share2 className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="flex space-x-4">
+                <Instagram className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+                <Share2 className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+                <Facebook className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+                <Twitter className="w-5 h-5 cursor-pointer hover:text-blue-600" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Middle Section */}
+        <div className="col-span-5">
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-semibold mb-4">CONTACT</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>+1 315 369 5943</li>
+                <li>Info@travelo.com</li>
+                <li>support@travelo.com</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">COMPANY</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>About us</li>
+                <li>Features</li>
+                <li>Careers</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">RESOURCE</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>Press info</li>
+                <li>Customers</li>
+                <li>Reviews</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="col-span-4">
+          <div className="flex flex-col space-y-6">
+            <div className="flex items-center space-x-2">
+              <img src="/api/placeholder/100/40" alt="Stripe" className="h-8" />
+              <img src="/api/placeholder/100/40" alt="PayPal" className="h-8" />
+              <img src="/api/placeholder/100/40" alt="Pay Later" className="h-8" />
+            </div>
+            <div className="space-y-4">
+              {activities.map((activity) => (
+                <div key={activity.id} className="flex items-center space-x-4">
+                  <div className="relative">
+                    <div className="absolute -top-2 -left-2 bg-gray-100 rounded-full px-2 text-sm">
+                      {activity.id}
+                    </div>
+                    <img
+                      src={activity.image}
+                      alt={activity.title}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{activity.title}</h4>
+                    <p className="text-sm text-gray-600">{activity.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Back to Top Button */}
+      <div className="fixed bottom-8 right-8">
+        <button 
+          className="bg-black text-white p-2 rounded-full hover:bg-gray-800"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <ArrowUpCircle className="w-6 h-6" />
+        </button>
+      </div>
+    </footer>
+  );
+};
+
+export default TravelFooter;
